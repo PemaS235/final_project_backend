@@ -4,6 +4,7 @@ import cors from 'cors'
 
 
 import authRoutes from './routes/authRoutes'
+import eventRoutes from './routes/eventRoutes'
 
 dotenv.config()
 
@@ -11,7 +12,7 @@ const app = express()
 app.use(express.json())
 app.use(
   cors({
-    origin: 'http://localhost:5173', // frontend origin
+    origin: '*', // frontend origin
     credentials: true,
   })
 )
@@ -30,6 +31,7 @@ app.use(
 // )
 
 app.use('/api/v1/auth', authRoutes)
+app.use('/api/v1/event', eventRoutes)
 
 
 // 🏠 Root route
